@@ -33,11 +33,9 @@ wget -O /root/Pictures/sans_wallpaper_v5.png https://github.com/kidrek/kali--pos
 ## Installation
 ## source : https://medium.com/@remco_verhoef/installing-regolith-for-kali-e4152c446cdf
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76458020C35556DC
-echo "deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main" >>
-/etc/apt/sources.list
+echo "deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main" >> /etc/apt/sources.list
 apt update
-wget http://archive.ubuntu.com/ubuntu/pool/main/x/xcb-util/libxcb-util1_0.4.0-0ubu
-ntu3_amd64.deb
+wget http://archive.ubuntu.com/ubuntu/pool/main/x/xcb-util/libxcb-util1_0.4.0-0ubuntu3_amd64.deb
 dpkg -i libxcb-util1_0.4.0-0ubuntu3_amd64.deb
 apt install -y regolith-desktop
 ## Configuration
