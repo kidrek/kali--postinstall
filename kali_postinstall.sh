@@ -59,6 +59,10 @@ mkdir -p /opt/tools/web
 #########################################
 ## Common tools
 apt install -y htop iftop iotop screen tree sshuttle clamav mirage terminator
+## Terminator configuration
+mkdir ~/.config/terminator/
+wget -O ~/.config/terminator/config https://raw.githubusercontent.com/kidrek/kali--postinstall/master/configuration/terminator
+sed -i 's/^.*set .terminal_path .*/set \$terminal_path \/usr\/bin\/terminator/' /root/.config/regolith/i3/config
 ## Development tools
 apt install -y golang
 ## Docker
