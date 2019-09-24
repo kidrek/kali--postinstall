@@ -24,9 +24,8 @@ xset s off
 gsettings set org.gnome.desktop.session idle-delay 0
 ## Set wallpaper
 gsettings set org.gnome.desktop.background picture-uri "file:///root/Pictures/sans_wallpaper_v5.png"
-
-wget -O /root/Pictures/sift.jpg https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/images/forensics_blue.jpg
-wget -O /root/Pictures/sans_wallpaper_v5.png https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/images/forensics_blue.jpg
+wget -O /root/Pictures/sift.jpg https://github.com/kidrek/kali--postinstall/raw/master/wallpaper/sift.jpg
+wget -O /root/Pictures/sans_wallpaper_v5.png https://github.com/kidrek/kali--postinstall/raw/master/wallpaper/sans_wallpaper_v5.png
 
 
 #########################################
@@ -73,20 +72,34 @@ apt install -y docker-ce docker-compose
 #cd /opt/tools/theHive
 #wget -O /opt/tools/theHive/docker-compose.yml https://raw.githubusercontent.com/TheHive-Project/TheHive/master/docker/thehive/docker-compose.yml
 #docker-compose up
+
 #########################################
 ## Forensic
 apt install -y forensics-full
-
+mkdir /cases
+ln -s /cases /root/Desktop/cases
+ln -s /mnt /root/Desktop/mount_points
 ### Documentation
 mkdir -p /opt/ebook/forensic/
-wget -O /opt/ebook/forensic/Evidence-of-Poster.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/Evidence-of-Poster.pdf
-wget -O /opt/ebook/forensic/Find-Evil-Poster.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/Find-Evil-Poster.pdf
-wget -O /opt/ebook/forensic/SANS-DFIR.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/SANS-DFIR.pdf
-wget -O /opt/ebook/forensic/Smartphone-Forensics-Poster.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/Smartphone-Forensics-Poster.pdf
-wget -O /opt/ebook/forensic/memory-forensics-cheatsheet.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/memory-forensics-cheatsheet.pdf
-wget -O /opt/ebook/forensic/network-forensics-cheatsheet.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/network-forensics-cheatsheet.pdf
-wget -O /opt/ebook/forensic/sift-cheatsheet.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/sift-cheatsheet.pdf
-wget -O /opt/ebook/forensic/windows-to-unix-cheatsheet.pdf https://github.com/teamdfir/sift-saltstack/raw/master/sift/files/sift/resources/windows-to-unix-cheatsheet.pdf
+ln -s /opt/ebook/ /root/Desktop/ebook
+wget -O /opt/ebook/forensic/Evidence-of-Poster.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/Evidence-of-Poster.pdf
+wget -O /opt/ebook/forensic/Find-Evil-Poster.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/Find-Evil-Poster.pdf
+wget -O /opt/ebook/forensic/SANS-DFIR.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/SANS-DFIR.pdf
+wget -O /opt/ebook/forensic/Smartphone-Forensics-Poster.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/Smartphone-Forensics-Poster.pdf
+wget -O /opt/ebook/forensic/memory-forensics-cheatsheet.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/memory-forensics-cheatsheet.pdf
+wget -O /opt/ebook/forensic/sift-cheatsheet.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/sift-cheatsheet.pdf
+wget -O /opt/ebook/forensic/windows-to-unix-cheatsheet.pdf https://github.com/kidrek/kali--postinstall/raw/master/documentation/forensic/windows-to-unix-cheatsheet.pdf
+wget -O /opt/ebook/forensic/rekall-memory-forensics-cheatsheet.pdf https://digital-forensics.sans.org/media/rekall-memory-forensics-cheatsheet.pdf
+wget -O /opt/ebook/forensic/Poster_Windows_Forensics_2018_WEB.pdf https://digital-forensics.sans.org/media/Poster_Windows_Forensics_2018_WEB.pdf
+wget -O /opt/ebook/forensic/SANS_Poster_2018_Hunt_Evil_FINAL.pdf https://digital-forensics.sans.org/media/SANS_Poster_2018_Hunt_Evil_FINAL.pdf
+wget -O /opt/ebook/forensic/Poster_SIFT_REMnux_2016_FINAL.pdf https://digital-forensics.sans.org/media/Poster_SIFT_REMnux_2016_FINAL.pdf
+wget -O /opt/ebook/forensic/DFIR-Smartphone-Forensics-Poster.pdf https://digital-forensics.sans.org/media/DFIR-Smartphone-Forensics-Poster.pdf
+wget -O /opt/ebook/forensic/analyzing-malicious-document-files.pdf https://digital-forensics.sans.org/media/analyzing-malicious-document-files.pdf
+wget -O /opt/ebook/forensic/network-forensics-cheatsheet.pdf https://digital-forensics.sans.org/media/Poster_Network-Forensics_WEB.pdf
+wget -O /opt/ebook/forensic/Poster-2015-Memory-Forensics.pdf  https://digital-forensics.sans.org/media/Poster-2015-Memory-Forensics.pdf
+wget -O /opt/ebook/forensic/Poster_Memory_Forensics.pdf https://digital-forensics.sans.org/media/Poster_Memory_Forensics.pdf
+wget -O /opt/ebook/forensic/reverse-engineering-malicious-code-tips.pdf  https://digital-forensics.sans.org/media/reverse-engineering-malicious-code-tips.pdf
+
 
 ### Forensic Volatility
 mkdir -p /opt/tools/forensic/volatiliy
