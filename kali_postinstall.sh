@@ -181,6 +181,9 @@ pip3 install pytz hexdump vivisect-vstruct-wb tabulate argparse pycryptodome
 apt-get install -y python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
 pip install --upgrade pip
 pip install --upgrade pwntools
+### GDB PEDA
+git clone https://github.com/longld/peda.git ~/peda
+echo "source ~/peda/peda.py" >> ~/.gdbinit
 #########################################
 ## Linux Pentesting
 apt install -y snmpenum openvas
