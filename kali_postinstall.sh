@@ -58,7 +58,7 @@ mkdir -p /opt/tools/windows
 mkdir -p /opt/tools/web
 #########################################
 ## Common tools
-apt install -y htop iftop iotop screen tree sshuttle clamav mirage
+apt install -y htop iftop iotop screen tree sshuttle clamav mirage terminator
 ## Development tools
 apt install -y golang
 ## Docker
