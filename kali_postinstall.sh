@@ -4,6 +4,8 @@
 # System Configuration
 ## Disable visual mode in Vim
 echo "set mouse-=a " > ~/.vimrc
+## Add Alias
+echo "alias ll=\"ls -la\"" >> ~/.bashrc
 ## Set keyboard layout
 L='fr' && sudo sed -i 's/XKBLAYOUT=\"\w*"/XKBLAYOUT=\"'$L'\"/g' /etc/default/keyboard
 L='pc105' && sudo sed -i 's/XKBMODEL=\"\w*"/XKBMODEL=\"'$L'\"/g' /etc/default/keyboard
@@ -23,9 +25,9 @@ xset s 0 0
 xset s off
 gsettings set org.gnome.desktop.session idle-delay 0
 ## Set wallpaper
-gsettings set org.gnome.desktop.background picture-uri "file:///root/Pictures/sans_wallpaper_v5.png"
 wget -O /root/Pictures/sift.jpg https://github.com/kidrek/kali--postinstall/raw/master/wallpaper/sift.jpg
 wget -O /root/Pictures/sans_wallpaper_v5.png https://github.com/kidrek/kali--postinstall/raw/master/wallpaper/sans_wallpaper_v5.png
+gsettings set org.gnome.desktop.background picture-uri "file:///root/Pictures/sans_wallpaper_v5.png"
 
 
 #########################################
@@ -56,7 +58,7 @@ mkdir -p /opt/tools/windows
 mkdir -p /opt/tools/web
 #########################################
 ## Common tools
-apt install -y htop iftop iotop screen tree sshuttle clamav
+apt install -y htop iftop iotop screen tree sshuttle clamav mirage
 ## Development tools
 apt install -y golang
 ## Docker
@@ -76,7 +78,8 @@ apt install -y docker-ce docker-compose
 apt install -y forensics-full
 mkdir /cases
 ln -s /cases /root/Desktop/cases
-ln -s /mnt /root/Desktop/mount_points
+mkdir /media/usb /media/e01 /media/windows_mount
+ln -s /media /root/Desktop/mount_points
 ### Documentation
 mkdir -p /opt/ebook/forensic/
 ln -s /opt/ebook/ /root/Desktop/ebook
@@ -97,7 +100,7 @@ wget -O /opt/ebook/forensic/network-forensics-cheatsheet.pdf https://digital-for
 wget -O /opt/ebook/forensic/Poster-2015-Memory-Forensics.pdf  https://digital-forensics.sans.org/media/Poster-2015-Memory-Forensics.pdf
 wget -O /opt/ebook/forensic/Poster_Memory_Forensics.pdf https://digital-forensics.sans.org/media/Poster_Memory_Forensics.pdf
 wget -O /opt/ebook/forensic/reverse-engineering-malicious-code-tips.pdf  https://digital-forensics.sans.org/media/reverse-engineering-malicious-code-tips.pdf
-
+wget -O /opt/ebook/forensic/remnux-malware-analysis-tips.pdf https://digital-forensics.sans.org/media/remnux-malware-analysis-tips.pdf
 
 ### Forensic Volatility
 mkdir -p /opt/tools/forensic/volatiliy
@@ -224,8 +227,7 @@ pushd /opt/tools/web/cmsmap-git/ >/dev/null
 git pull -q
 popd >/dev/null
 mkdir -p /usr/local/bin/
-cd /opt/tools/web/cmsmap-git/
-./setup/install.sh
+cd /opt/tools/web/cmsmap-git/cmsmap
 file=/usr/local/bin/cmsmap-git
 cat <<EOF > "${file}" 
 #!/bin/bash
