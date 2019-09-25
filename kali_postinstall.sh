@@ -79,7 +79,7 @@ apt install -y docker-ce docker-compose
 
 #########################################
 ## Forensic
-apt install -y forensics-full
+apt install -y forensics-full libguestfs-tools
 mkdir /cases
 ln -s /cases /root/Desktop/cases
 mkdir /media/usb /media/e01 /media/windows_mount
@@ -107,8 +107,8 @@ wget -O /opt/ebook/forensic/reverse-engineering-malicious-code-tips.pdf  https:/
 wget -O /opt/ebook/forensic/remnux-malware-analysis-tips.pdf https://digital-forensics.sans.org/media/remnux-malware-analysis-tips.pdf
 
 ### Forensic Volatility
-mkdir -p /opt/tools/forensic/volatiliy
-git clone --recursive -q -b master https://github.com/volatilityfoundation/profiles.git /opt/tools/forensic/volatiliy/profiles
+mkdir -p /opt/tools/forensic/volatility
+git clone --recursive -q -b master https://github.com/volatilityfoundation/profiles.git /opt/tools/forensic/volatility/profiles
 mkdir -p /opt/tools/forensic/volatility/plugins
 ### SIFT SCRIPTS : https://github.com/teamdfir/sift-saltstack/tree/master/sift/scripts
 #### Forensic 4n6
