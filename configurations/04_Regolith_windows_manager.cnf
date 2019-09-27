@@ -1,0 +1,23 @@
+
+NAME="Regolith"
+DESC="Install Regolith Windows Manager"
+COMMAND="
+## source : https://medium.com/@remco_verhoef/installing-regolith-for-kali-e4152c446cdf
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76458020C35556DC
+if [ `cat /etc/apt/sources.list | grep '^deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main' | wc -l ` -eq 0 ]; then echo 'deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main' >> /etc/apt/sources.list; fi
+apt update
+cd /tmp
+if [ ! -f 'libxcb-util1_0.4.0-0ubuntu3_amd64.deb' ]; then wget http://archive.ubuntu.com/ubuntu/pool/main/x/xcb-util/libxcb-util1_0.4.0-0ubuntu3_amd64.deb; fi
+dpkg -i libxcb-util1_0.4.0-0ubuntu3_amd64.deb
+apt install -y regolith-desktop
+
+### Configuration
+### Copy default regolith configuration in HomeDirectory
+if [ ! -d '~/.config/regolith/i3' ]; then mkdir -p ~/.config/regolith/i3; fi
+if [ ! -f '~/.config/regolith/i3/config' ]; then cp /etc/regolith/i3/config ~/.config/regolith/i3/config; fi
+### Add keybind to launch filemanager with super+e
+apt install -y nemo
+echo '
+## Launch FileManager
+bindsym \$mod+e exec /usr/bin/nemo' >>  ~/.config/regolith/i3/config
+"
