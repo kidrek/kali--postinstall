@@ -1,6 +1,0 @@
-
-NAME="CommonTools"
-DESC="Install common tools"
-COMMAND=' 
-apt install -y htop iftop iotop screen tree sshuttle clamav mirage terminator
-'

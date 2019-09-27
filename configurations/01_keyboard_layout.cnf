@@ -1,9 +1,0 @@
-NAME="Keyboard"
-DESC="set Mac layout"
-COMMAND='echo " 
-XKBMODEL=\"pc105\"  
-XKBLAYOUT=\"fr\"   
-XKBVARIANT=\"mac\" 
-XKBOPTIONS=\"lv3:switch,compose:lwin\" 
-BACKSPACE=\"guess\" 
-" > /etc/default/keyboard'

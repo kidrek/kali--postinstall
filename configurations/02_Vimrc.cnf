@@ -1,7 +1,0 @@
-
-NAME="Vimrc"
-DESC="Disable visual mode"
-COMMAND=' 
-echo "set mouse-=a " > /root/.vimrc
-echo "kiki" > .kiki
-'
