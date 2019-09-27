@@ -1,0 +1,7 @@
+NAME="Volatility"
+DESC="Download plugins, and profiles"
+COMMAND="
+if [ ! -d "/opt/tools/forensic/volatility" ]; then mkdir -p /opt/tools/forensic/volatility; fi
+git clone --recursive -q -b master https://github.com/volatilityfoundation/profiles.git /opt/tools/forensic/volatility/profiles
+if [ ! -d "/opt/tools/forensic/volatility/plugins" ]; then mkdir -p /opt/tools/forensic/volatility/plugins; fi
+"
