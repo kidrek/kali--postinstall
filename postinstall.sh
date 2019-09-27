@@ -1,5 +1,9 @@
 #!/bin/bash
 
+## Required
+if [ `dpkg -l | grep 'ii  dialog' | wc -l` -eq 0 ]; then apt install -y dialog; fi
+
+
 ## Definitions
 HEIGHT=15
 WIDTH=80
@@ -7,17 +11,36 @@ CHOICE_HEIGHT=6
 BACKTITLE="Security tools"
 TITLE="Choose your security tools"
 MENU="Choose one of the following options:"
-env DIALOGRC="./dialogrc"
+PWD=`pwd`
+env DIALOGRC="./dialogrc" 1>/dev/null 2>&1
 
+## Select ALL features by default
+dir_counter=0
+for dir in `find ./ -type d` 
+do
+  if [ $dir_counter -gt 0 ]
+  then
+    DIR_CONFIG=`echo $dir | cut -f 2 -d "/" `
+    if [ ! -f ".choices_$DIR_CONFIG" ]
+    then
+      for cnf in `find ./$DIR_CONFIG -iname "*.cnf" | sort -n`
+      do
+        ID=`echo $cnf | cut -f 3 -d "/" | cut -f 1 -d "_"`
+        source $cnf
+        echo -n "$ID-$NAME " >> .choices_$DIR_CONFIG
+      done
+    fi
+  fi
+  let "dir_counter=dir_counter+1"
+done
+
+## Launch menu
 OPTIONS=(1 "Configurations"
          2 "Forensic Tools"
          3 "Pentest Tools"
          4 "Reverse Tools"
          5 "--------------------------"
          6 "Appliquer les modifications")
-
-## Required
-if [ `dpkg -l | grep 'ii  dialog' | wc -l` -eq 0 ]; then apt install -y dialog; fi
 
 CHOICE=$(export DIALOGRC=./.dialogrc; dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -43,7 +66,7 @@ case $CHOICE in
             echo "Application des modifications en cours.."
 	    for choice_file in `find . -name ".choices_*"`
             do
-	      for choice in `cat $choice_file`
+	      for choice in `cd $PWD; cat $choice_file`
 	      do
 		CONFIG_DIR=`echo $choice_file | cut -f 1 -d '_' --complement`
 	        CONFIG_FILE=`find $CONFIG_DIR -name "\`echo $choice | awk -F \"-\" '{print $1}'\`*.cnf"`

@@ -26,7 +26,7 @@ do
   NAME="$StringLength_result"
   StringLength_Check "$DESC"
   DESC="$StringLength_result"
-  OPTIONS="$OPTIONS $ID-$NAME $DESC OFF"
+  OPTIONS="$OPTIONS $ID-$NAME $DESC ON"
 done
 
 CHOICE=$(export DIALOGRC=./.dialogrc;dialog --clear \
@@ -39,6 +39,7 @@ CHOICE=$(export DIALOGRC=./.dialogrc;dialog --clear \
 
 
 echo $CHOICE
+echo "" > ./.choices_configurations
 echo $CHOICE > ./.choices_configurations
 ./postinstall.sh
 
