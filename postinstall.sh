@@ -91,5 +91,5 @@ case $CHOICE in
 esac
 
 ## Suppression des choix effectues
-#rm -f .choices_*
+rm -f .choices_*
 

@@ -4,6 +4,6 @@ DESC="Install common tools"
 COMMAND=' 
 apt install -y htop iftop iotop screen tree sshuttle clamav mirage terminator
 ## Terminator configuration
-mkdir ~/.config/terminator/
+if [ ! -d '~/.config/terminator/' ]; then mkdir ~/.config/terminator/; fi
 cp ./resources/configurations/terminator ~/.config/terminator/config
 '
