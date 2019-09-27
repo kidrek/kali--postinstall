@@ -14,19 +14,30 @@ MENU="Choose one of the following options:"
 PWD=`pwd`
 env DIALOGRC="./dialogrc" 1>/dev/null 2>&1
 
+StringLength_Check(){
+  if [ ${#1} -eq 0 ]; then
+    StringLength_result="No_description"
+  else
+    StringLength_result="${1// /_}"
+    #StringLength_result="$1"
+  fi
+}
+
 ## Select ALL features by default
 dir_counter=0
 for dir in `find ./ -type d` 
 do
-  if [ $dir_counter -gt 0 ]
+  if [ $dir_counter -gt 1 ]
   then
-    DIR_CONFIG=`echo $dir | cut -f 2 -d "/" `
+    DIR_CONFIG=`echo $dir | cut -f 3 -d "/" `
     if [ ! -f ".choices_$DIR_CONFIG" ]
     then
-      for cnf in `find ./$DIR_CONFIG -iname "*.cnf" | sort -n`
+      for cnf in `find ./modules/$DIR_CONFIG -iname "*.cnf" | sort -n`
       do
-        ID=`echo $cnf | cut -f 3 -d "/" | cut -f 1 -d "_"`
+        ID=`echo $cnf | cut -f 4 -d "/" | cut -f 1 -d "_"`
         source $cnf
+        StringLength_Check "$NAME"
+        NAME="$StringLength_result"
         echo -n "$ID-$NAME " >> .choices_$DIR_CONFIG
       done
     fi
@@ -34,7 +45,7 @@ do
   let "dir_counter=dir_counter+1"
 done
 
-## Launch menu
+# Launch menu
 OPTIONS=(1 "Configurations"
          2 "Forensic Tools"
          3 "Pentest Tools"
@@ -53,10 +64,10 @@ CHOICE=$(export DIALOGRC=./.dialogrc; dialog --clear \
 clear
 case $CHOICE in
         1)
-            ./configurations/menu.sh
+            ./modules/configurations/menu.sh
             ;;
         2)
-	    ./forensic_tools/menu.sh
+	    ./modules/forensic_tools/menu.sh
             ;;
 	3)
 	    ./postinstall.sh
@@ -68,8 +79,11 @@ case $CHOICE in
             do
 	      for choice in `cd $PWD; cat $choice_file`
 	      do
-		CONFIG_DIR=`echo $choice_file | cut -f 1 -d '_' --complement`
+		CONFIG_DIR=./modules/`echo $choice_file | cut -f 1 -d '_' --complement`
 	        CONFIG_FILE=`find $CONFIG_DIR -name "\`echo $choice | awk -F \"-\" '{print $1}'\`*.cnf"`
+		#echo "choice:$choice"
+		#echo "CONFIG_DIR:$CONFIG_DIR"
+		#echo "CONFIG_FILE:$CONFIG_FILE"
 	        source $CONFIG_FILE
 	        eval "$COMMAND"
 	      done
@@ -78,5 +92,5 @@ case $CHOICE in
 esac
 
 ## Suppression des choix effectues
-rm -f .choices_*
+#rm -f .choices_*
 
