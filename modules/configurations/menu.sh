@@ -30,7 +30,7 @@ do
   OPTIONS="$OPTIONS $ID-$NAME $DESC ON"
 done
 
-CHOICE=$(export DIALOGRC=./.dialogrc;dialog --clear \
+CHOICE=$(export DIALOGRC=./resources/configurations/.dialogrc;dialog --clear \
                 --backtitle "$BACKTITLE" \
                 --title "$TITLE" \
                 --checklist "$MENU" \

@@ -12,6 +12,7 @@ apt update
 cd /tmp
 if [ ! -f 'libxcb-util1_0.4.0-0ubuntu3_amd64.deb' ]; then wget http://archive.ubuntu.com/ubuntu/pool/main/x/xcb-util/libxcb-util1_0.4.0-0ubuntu3_amd64.deb; fi
 dpkg -i libxcb-util1_0.4.0-0ubuntu3_amd64.deb
+cd -
 apt install -y regolith-desktop
 
 ### Configuration

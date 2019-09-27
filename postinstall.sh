@@ -12,7 +12,6 @@ BACKTITLE="Security tools"
 TITLE="Choose your security tools"
 MENU="Choose one of the following options:"
 PWD=`pwd`
-env DIALOGRC="./dialogrc" 1>/dev/null 2>&1
 
 StringLength_Check(){
   if [ ${#1} -eq 0 ]; then
@@ -53,7 +52,7 @@ OPTIONS=(1 "Configurations"
          5 "--------------------------"
          6 "Appliquer les modifications")
 
-CHOICE=$(export DIALOGRC=./.dialogrc; dialog --clear \
+CHOICE=$(export DIALOGRC=./resources/configurations/.dialogrc; dialog --clear \
                 --backtitle "$BACKTITLE" \
                 --title "$TITLE" \
                 --menu "$MENU" \
