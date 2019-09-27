@@ -16,6 +16,9 @@ OPTIONS=(1 "Configurations"
          5 "--------------------------"
          6 "Appliquer les modifications")
 
+## Required
+if [ `dpkg -l | grep 'ii  dialog' | wc -l` -eq 0 ]; then apt install -y dialog; fi
+
 CHOICE=$(export DIALOGRC=./.dialogrc; dialog --clear \
                 --backtitle "$BACKTITLE" \
                 --title "$TITLE" \
