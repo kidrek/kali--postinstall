@@ -3,9 +3,16 @@
 This is a script that will complete a new installation of the "kali" distribution.
 This script has been tested, and works on Kali XFCE version.
 
-To use it, execute : 
+To use it, execute install dialog package.
 
 ```
-curl https://raw.githubusercontent.com/kidrek/kali--postinstall/master/kali_postinstall.sh | /bin/bash
+apt install -y dialog
+```
+
+Then,
+
+```
+git clone https://github.com/kidrek/kali--postinstall.git
+./postinstall.sh
 ```
 
