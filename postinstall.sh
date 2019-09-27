@@ -25,9 +25,9 @@ StringLength_Check(){
 
 ## Select ALL features by default
 dir_counter=0
-for dir in `find ./ -type d` 
+for dir in `find ./modules -type d` 
 do
-  if [ $dir_counter -gt 1 ]
+  if [ $dir_counter -gt 0 ]
   then
     DIR_CONFIG=`echo $dir | cut -f 3 -d "/" `
     if [ ! -f ".choices_$DIR_CONFIG" ]
