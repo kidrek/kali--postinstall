@@ -16,3 +16,5 @@ git clone https://github.com/kidrek/kali--postinstall.git
 ./postinstall.sh
 ```
 
+![](./screenshot/main_panel.png)
+![](./screenshot/forensic_panel.png)
