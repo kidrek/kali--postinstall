@@ -45,5 +45,6 @@ To execute new modules's command and check result, run :
 
 ```
 # source <MYNEWMODULE>.cnf
-# eval $COMMAND
+# eval "$COMMAND"
 ```
+
