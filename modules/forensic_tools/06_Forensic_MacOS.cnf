@@ -1,0 +1,43 @@
+NAME="Forensic MacOS Tools"
+DESC="Install libfvde-utils, hfsplus"
+COMMAND="
+apt install -y libfvde-utils hfsplus
+
+#### Download Filevault2 Volatility plugin
+wget -O /opt/tools/forensic/volatility/plugins/filevault2.py https://raw.githubusercontent.com/tribalchicken/volatility-filevault2/master/plugins/mac/filevault2.py
+
+#### Chainbreaker
+git clone --recursive -q -b master https://github.com/n0fate/chainbreaker.git /opt/tools/macos/forensic/chainbreaker
+pip2 install hexdump
+file=/usr/local/bin/chainbreaker
+cat <<EOF > \"${file}\" 
+#!/bin/bash
+cd /opt/tools/macos/forensic/chainbreaker && python2 ./chainbreaker.py \"\$@\"
+EOF
+chmod +x \"${file}\"
+sed -i 's/^.*# hexdump(dbkey)/    hexdump(dbkey)/' \"/opt/tools/macos/forensic/chainbreaker/chainbreaker.py\"
+sed -i 's/^.*# hexdump(passwd)/            hexdump(passwd)/' \"/opt/tools/macos/forensic/chainbreaker/chainbreaker.py\"
+
+#### Mac_apt
+git clone --recursive -q -b master https://github.com/ydkhatri/mac_apt.git /opt/tools/macos/forensic/mac_apt/
+file=/usr/local/bin/mac_apt
+cat <<EOF > \"${file}\" 
+#!/bin/bash
+cd /opt/tools/macos/forensic/mac_apt/ && python3 ./mac_apt.py \"\$@\"
+EOF
+chmod +x \"${file}\"
+
+wget -O /tmp/libewf-20140807.tar.gz https://github.com/libyal/libewf-legacy/releases/download/20140807/libewf-20140807.tar.gz
+tar -C /tmp -xvzf /tmp/libewf-20140807.tar.gz
+cd /tmp/libewf-20140807
+python3 setup.py build
+python3 setup.py install
+cd -
+git clone --recursive https://github.com/ydkhatri/pylzfse /tmp/pylzfse/
+cd /tmp/pylzfse
+python3 setup.py build
+python3 setup.py install
+cd -
+pip3 install biplist tzlocal construct==2.8.10 xlsxwriter plistutils kaitaistruct lz4 pytsk3==20170802 libvmdk-python==20181227
+apt install -y libbz2-dev zlib1g-dev
+"
