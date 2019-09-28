@@ -1,5 +1,5 @@
 NAME="Forensic MacOS Tools"
-DESC="Install libfvde-utils, hfsplus"
+DESC="Install libfvde-utils,hfsplus,chainbreaker,mac_apt,bling"
 COMMAND="
 apt install -y libfvde-utils hfsplus
 
@@ -26,7 +26,6 @@ cat <<EOF > \"${file}\"
 cd /opt/tools/macos/forensic/mac_apt/ && python3 ./mac_apt.py \"\$@\"
 EOF
 chmod +x \"${file}\"
-
 wget -O /tmp/libewf-20140807.tar.gz https://github.com/libyal/libewf-legacy/releases/download/20140807/libewf-20140807.tar.gz
 tar -C /tmp -xvzf /tmp/libewf-20140807.tar.gz
 cd /tmp/libewf-20140807
@@ -40,4 +39,14 @@ python3 setup.py install
 cd -
 pip3 install biplist tzlocal construct==2.8.10 xlsxwriter plistutils kaitaistruct lz4 pytsk3==20170802 libvmdk-python==20181227
 apt install -y libbz2-dev zlib1g-dev
+
+#### Bling
+pip3 install pytz hexdump vstruct vivisect-vstruct-wb tabulate argparse pycryptodome
+wget -O /opt/tools/macos/forensic/bling.py https://gist.githubusercontent.com/williballenthin/d6bf9f1553d9fa27e0cc6880a6d992b4/raw/caf403d84ace7d6961d76f9868557c9eab330805/bling.py 
+file=/usr/local/bin/bling
+cat <<EOF > \"${file}\" 
+#!/bin/bash
+cd /opt/tools/macos/forensic/ && python3 ./bling.py \"\$@\"
+EOF
+chmod +x \"${file}\"
 "
