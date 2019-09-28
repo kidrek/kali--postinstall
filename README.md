@@ -1,12 +1,16 @@
 # kali--postinstall
 
-This is a script that will complete a new installation of the "kali" distribution.
-This script has been tested, and works on Kali XFCE version.
+This script allows you to install missing tools on fresh installation of the "kali" distribution, like : 
+
+* **Desktop Manager**: Regolith
+* **Forensic tools**: forensics-full metapackage, libguestfs-tools, volatility profiles
+* ...
 
 ## How to use it
 
 ```
 git clone https://github.com/kidrek/kali--postinstall.git
+cd kali--postinstall
 ./postinstall.sh
 ```
 
