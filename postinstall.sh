@@ -69,6 +69,9 @@ case $CHOICE in
         2)
 	    ./modules/forensic_tools/menu.sh
             ;;
+        3)
+	    ./modules/pentesting_tools/menu.sh
+            ;;
         4)
 	    ./modules/pwn_tools/menu.sh
             ;;
