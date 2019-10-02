@@ -85,13 +85,14 @@ case $CHOICE in
             do
 	      for choice in `cd $PWD; cat $choice_file`
 	      do
-		CONFIG_DIR=./modules/`echo $choice_file | cut -f 1 -d '_' --complement`
+          echo "[*] Execution de $choice"
+		      CONFIG_DIR=./modules/`echo $choice_file | cut -f 1 -d '_' --complement`
 	        CONFIG_FILE=`find $CONFIG_DIR -name "\`echo $choice | awk -F \"-\" '{print $1}'\`*.cnf"`
-		#echo "choice:$choice"
-		#echo "CONFIG_DIR:$CONFIG_DIR"
-		#echo "CONFIG_FILE:$CONFIG_FILE"
+      		#echo "choice:$choice"
+      		#echo "CONFIG_DIR:$CONFIG_DIR"
+      		#echo "CONFIG_FILE:$CONFIG_FILE"
 	        source $CONFIG_FILE
-	        eval "$COMMAND"
+	        eval "$COMMAND" &
 	      done
             done
             ;;
