@@ -11,6 +11,7 @@ CHOICE_HEIGHT=6
 BACKTITLE="Security tools"
 TITLE="Choose your security tools"
 MENU="Choose one of the following options:"
+LOG="./log"
 PWD=`pwd`
 
 StringLength_Check(){
@@ -92,7 +93,7 @@ case $CHOICE in
       		#echo "CONFIG_DIR:$CONFIG_DIR"
       		#echo "CONFIG_FILE:$CONFIG_FILE"
 	        source $CONFIG_FILE
-	        eval "$COMMAND" &
+	        eval "$COMMAND"  1>$LOG 2>&1
 	      done
             done
             ;;
