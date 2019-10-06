@@ -1,6 +1,6 @@
 
-NAME="Regolith"
-DESC="Install Regolith Windows Manager"
+NAME="Set SANS Wallpaper"
+DESC=""
 COMMAND="
 ## Set SANS Wallpaper
 cp ./resources/wallpaper/* /root/Pictures/
