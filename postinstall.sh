@@ -51,8 +51,9 @@ OPTIONS=(1 "Configurations"
          3 "Pentest Tools"
          4 "Pwn Tools"
          5 "Reverse Tools"
-         6 "--------------------------"
-         7 "Appliquer les modifications")
+         6 "99Custom"
+         7 "--------------------------"
+         8 "Appliquer les modifications")
 
 CHOICE=$(export DIALOGRC=./resources/configurations/.dialogrc; dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -76,10 +77,13 @@ case $CHOICE in
         4)
 	    ./modules/pwn_tools/menu.sh
             ;;
-	6)
+        6)
+	    ./modules/custom/menu.sh
+            ;;
+	7)
 	    ./postinstall.sh
 	    ;;
-        7)
+        8)
 	    clear
             echo "Application des modifications en cours.."
 	    for choice_file in `find . -name ".choices_*"`
