@@ -4,4 +4,5 @@ COMMAND="
 ## Disable screensaver
 xset s 0 0
 xset s off
+gsettings set org.gnome.desktop.session idle-delay 0
 "
