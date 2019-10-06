@@ -25,7 +25,7 @@ StringLength_Check(){
 
 ## Select ALL features by default
 dir_counter=0
-for dir in `find ./modules -type d` 
+for dir in `find ./modules -type d | grep -v custom` 
 do
   if [ $dir_counter -gt 0 ]
   then
