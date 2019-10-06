@@ -9,6 +9,6 @@ wget -O /tmp/veracrypt.zip $url$latestVersion
 unzip -o -d /opt/tools/common/veracrypt /tmp/veracrypt.zip
 cd /opt/tools/common/veracrypt/*/src/
 make
-ln -s `find /opt/tools/common/veracrypt/*/src/Main -name veracrypt` /usr/local/bin/
+ln -f -s `find /opt/tools/common/veracrypt/*/src/Main -name veracrypt` /usr/local/bin/
 cd -
 "
