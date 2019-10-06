@@ -3,13 +3,13 @@ DESC=""
 COMMAND="
 apt install -y yasm libfuse-dev libwxgtk3.0-dev pkg-config
 mkdir -p /opt/tools/common 2>/dev/null
-url='https://github.com'
+url=\"https://github.com\"
 latestVersion=`curl -sL 'https://github.com/veracrypt/VeraCrypt/releases/tag/VeraCrypt_1.23' | grep -i '.zip' | grep 'a href' | cut -d'\"' -f2`
-#echo $url
-#echo '$url/$latestVersion'
-wget -O /tmp/veracrypt.zip '$url/$latestVersion'
+#echo \"\$url\"
+#echo \"\$url/\$latestVersion\"
+wget -O /tmp/veracrypt.zip \"\$url/\$latestVersion\"
 if [ -f /tmp/veracrypt.zip ];
-then 
+then
   unzip -o -d /opt/tools/common/veracrypt /tmp/veracrypt.zip
   cd /opt/tools/common/veracrypt/*/src/
   make
