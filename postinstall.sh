@@ -93,7 +93,7 @@ case $CHOICE in
       		#echo "CONFIG_DIR:$CONFIG_DIR"
       		#echo "CONFIG_FILE:$CONFIG_FILE"
 	        source $CONFIG_FILE
-	        eval "$COMMAND"  1>$LOG 2>&1
+	        eval "$COMMAND"  1>>$LOG 2>&1
 	      done
             done
             ;;
