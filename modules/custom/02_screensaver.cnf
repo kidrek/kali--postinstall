@@ -1,0 +1,7 @@
+NAME="Disable Screensaver"
+DESC=""
+COMMAND="
+## Disable screensaver
+xset s 0 0
+xset s off
+"
