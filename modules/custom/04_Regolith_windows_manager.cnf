@@ -2,9 +2,6 @@
 NAME="Regolith"
 DESC="Install Regolith Windows Manager"
 COMMAND="
-## Set Wallpaper
-gsettings set org.gnome.desktop.background picture-uri "file:///root/Pictures/sans_wallpaper_v5.png"
-cp ./resources/wallpaper/* /root/Pictures/
 ## source : https://medium.com/@remco_verhoef/installing-regolith-for-kali-e4152c446cdf
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76458020C35556DC
 if [ `cat /etc/apt/sources.list | grep '^deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main' | wc -l ` -eq 0 ]; then echo 'deb http://ppa.launchpad.net/kgilmer/regolith-stable/ubuntu disco main' >> /etc/apt/sources.list; fi
