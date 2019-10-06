@@ -1,6 +1,7 @@
 NAME="Forensic MetaPackage"
 DESC=""
 COMMAND="
+export DEBIAN_FRONTEND=noninteractive
 apt install -y forensics-full libguestfs-tools
 if [ ! -d '/cases' ]; then mkdir /cases; fi
 if [ ! -d '/root/Desktop/cases' ]; then ln -s /cases /root/Desktop/cases; fi
