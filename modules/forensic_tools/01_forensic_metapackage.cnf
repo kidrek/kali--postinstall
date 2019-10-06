@@ -1,7 +1,7 @@
 NAME="Forensic MetaPackage"
 DESC=""
 COMMAND="
-apt install -y forensics-full
+apt install -y forensics-full libguestfs-tools
 if [ ! -d '/cases' ]; then mkdir /cases; fi
 if [ ! -d '/root/Desktop/cases' ]; then ln -s /cases /root/Desktop/cases; fi
 if [ ! -d '/media/usb' ]; then mkdir /media/usb; fi

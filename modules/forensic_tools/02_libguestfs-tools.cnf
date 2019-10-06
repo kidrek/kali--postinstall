@@ -1,3 +1,0 @@
-NAME="Libguestfs-tools"
-DESC="Package to mount hdd image"
-COMMAND="apt install -y libguestfs-tools"
