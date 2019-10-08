@@ -3,6 +3,6 @@ NAME="Set SANS Wallpaper"
 DESC=""
 COMMAND="
 ## Set SANS Wallpaper
-cp ./resources/wallpaper/* /root/Pictures/
-gsettings set org.gnome.desktop.background picture-uri "file:///root/Pictures/sans_wallpaper_v5.png"
+cp ./resources/wallpaper/* /`echo $HOME`/Pictures/
+gsettings set org.gnome.desktop.background picture-uri "file:///`echo $HOME`/Pictures/sans_wallpaper_v5.png"
 "
