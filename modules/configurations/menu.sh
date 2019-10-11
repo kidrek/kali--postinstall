@@ -27,7 +27,7 @@ do
   NAME="$StringLength_result"
   StringLength_Check "$DESC"
   DESC="$StringLength_result"
-  OPTIONS="$OPTIONS $ID-$NAME $DESC ON"
+  OPTIONS="$ID-$NAME $DESC ON $OPTIONS"
 done
 
 CHOICE=$(export DIALOGRC=./resources/configurations/.dialogrc;dialog --clear \
