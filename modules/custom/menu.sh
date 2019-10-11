@@ -5,7 +5,7 @@ HEIGHT=15
 WIDTH=80
 CHOICE_HEIGHT=6
 BACKTITLE="Security tools"
-TITLE="Choose your Forensic Tools"
+TITLE="Choose your custom settings"
 MENU="Choose one of the following options:"
 
 StringLength_Check(){
