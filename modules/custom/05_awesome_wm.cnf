@@ -19,5 +19,5 @@ sed -i -e 's,^    awful.key({ modkey\,           }\, \"s\".*,    awful.key({ mod
 sed -i -e 's,^    awful.key({ modkey }\, \"q\".*,    awful.key({ modkey}\, \"w\"\, function () awful.spawn(browser) end\,,' ~/.config/awesome/rc.lua
 
 ## Change layout hotkey
-sed -i -e 's,^    awful.key({ modkey           }\, \"sapce\".*,    awful.key({ modkey           }\, \"t\"\, function () awful.layout.inc( 1)                end\,,' ~/.config/awesome/rc.lua
+sed -i -e 's,^    awful.key({ modkey\,           }\, \"sapce\".*,    awful.key({ modkey           }\, \"t\"\, function () awful.layout.inc( 1)                end\,,' ~/.config/awesome/rc.lua
 "
