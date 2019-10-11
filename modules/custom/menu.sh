@@ -17,7 +17,7 @@ StringLength_Check(){
   fi
 }
 
-for cnf in `find ./modules/custom/ -iname "*.cnf" | sort -n`
+for cnf in `find ./modules/custom/ -iname "*.cnf" | sort -r`
 do
   #ID=`echo $cnf | awk -F "_" '{print $1}' | awk -F "/" '{print $3}'`
   #ID=`echo $cnf | cut -f 2 -d '/' --complement | cut -f 1 -d '_' | cut -f 2 -d '/'`
