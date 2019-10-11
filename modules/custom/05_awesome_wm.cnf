@@ -12,5 +12,7 @@ cp ~/.config/awesome/rc.lua.template ~/.config/awesome/rc.lua
 sed -i -e 's,^local terminal     = .*,local terminal     = \"terminator\",' ~/.config/awesome/rc.lua
 sed -i -e 's,^local terminal     = .*,&\nlocal filemanager  = \"nemo\",' ~/.config/awesome/rc.lua
 
-sed -i -e 's,^    awful.key({ modkey\,           }\, \"s\".*,    awful.key({ modkey\,           }\, \"h\",      hotkeys_popup.show_help\,,' ~/.config/awesome/rc.lua
+sed -i -e 's,^    awful.key({ modkey\,           }\, \"s\".*,    awful.key({ modkey\,           }\, \"h\"\,      hotkeys_popup.show_help\,,' ~/.config/awesome/rc.lua
+sed -i -e 's,^    awful.key({ modkey}\, \"q\".*,    awful.key({ modkey}\, \"w\"\, function () awful.spawn(browser) end\,,' ~/.config/awesome/rc.lua
+
 "
