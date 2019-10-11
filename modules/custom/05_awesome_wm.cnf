@@ -20,9 +20,16 @@ sed -i -e 's,^    awful.key({ modkey\,           }\, \"s\".*,    awful.key({ mod
 
 ## Change webbrowser hotkey
 sed -i -e 's,^    awful.key({ modkey\,           }\, \"w\".*,  --awful.key({ modkey\,           }\, \"w\"\, function () awful.util.mymainmenu:show() end \,,' ~/.config/awesome/rc.lua
+sed -i -e 's,^              {description = \"show main menu\"\, group.*,            --{description = \"show main menu\"\, group = \"awesome\"})\,,' ~/.config/awesome/rc.lua
+
 sed -i -e 's,^    awful.key({ modkey }\, \"q\".*,    awful.key({ modkey}\, \"w\"\, function () awful.spawn(browser) end\,,' ~/.config/awesome/rc.lua
 
 
 ## Change layout hotkey
 sed -i -e 's,^    awful.key({ modkey\,           }\, \"space\".*,    awful.key({ modkey\,           }\, \"t\"\, function () awful.layout.inc( 1)                end\,,' ~/.config/awesome/rc.lua
+
+
+## Change wallpaper
+cp ~/.config/awesome/themes/multicolor/wall.png ~/.config/awesome/themes/multicolor/wall.png.old
+cp ~/Pictures/sans_wallpaper_v5.png ~/.config/awesome/themes/multicolor/wall.png 
 "
