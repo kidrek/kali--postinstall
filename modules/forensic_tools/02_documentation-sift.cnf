@@ -1,0 +1,18 @@
+NAME="Documentation SIFT"
+DESC="Download SIFT documentations"
+COMMAND="
+if [ ! -d '/opt/ebook/forensic/' ]; then mkdir -p /opt/ebook/forensic/; fi
+if [ ! -d '/root/Desktop/ebook' ]; then ln -s /opt/ebook/ /root/Desktop/; fi
+cp ./resources/documentation/forensic/* /opt/ebook/forensic/
+if [ ! -f '/opt/ebook/forensic/rekall-memory-forensics-cheatsheet.pdf' ]; then wget -O /opt/ebook/forensic/rekall-memory-forensics-cheatsheet.pdf https://digital-forensics.sans.org/media/rekall-memory-forensics-cheatsheet.pdf; fi
+if [ ! -f '/opt/ebook/forensic/Poster_Windows_Forensics_2018_WEB.pdf' ]; then wget -O /opt/ebook/forensic/Poster_Windows_Forensics_2018_WEB.pdf https://digital-forensics.sans.org/media/Poster_Windows_Forensics_2018_WEB.pdf; fi
+if [ ! -f '/opt/ebook/forensic/SANS_Poster_2018_Hunt_Evil_FINAL.pdf' ]; then wget -O /opt/ebook/forensic/SANS_Poster_2018_Hunt_Evil_FINAL.pdf https://digital-forensics.sans.org/media/SANS_Poster_2018_Hunt_Evil_FINAL.pdf; fi
+if [ ! -f '/opt/ebook/forensic/Poster_SIFT_REMnux_2016_FINAL.pdf' ]; then wget -O /opt/ebook/forensic/Poster_SIFT_REMnux_2016_FINAL.pdf https://digital-forensics.sans.org/media/Poster_SIFT_REMnux_2016_FINAL.pdf; fi
+if [ ! -f '/opt/ebook/forensic/DFIR-Smartphone-Forensics-Poster.pdf' ]; then wget -O /opt/ebook/forensic/DFIR-Smartphone-Forensics-Poster.pdf https://digital-forensics.sans.org/media/DFIR-Smartphone-Forensics-Poster.pdf; fi
+if [ ! -f '/opt/ebook/forensic/analyzing-malicious-document-files.pdf' ]; then wget -O /opt/ebook/forensic/analyzing-malicious-document-files.pdf https://digital-forensics.sans.org/media/analyzing-malicious-document-files.pdf; fi
+if [ ! -f '/opt/ebook/forensic/network-forensics-cheatsheet.pdf' ]; then wget -O /opt/ebook/forensic/network-forensics-cheatsheet.pdf https://digital-forensics.sans.org/media/Poster_Network-Forensics_WEB.pdf; fi
+if [ ! -f '/opt/ebook/forensic/Poster-2015-Memory-Forensics.pdf' ]; then wget -O /opt/ebook/forensic/Poster-2015-Memory-Forensics.pdf  https://digital-forensics.sans.org/media/Poster-2015-Memory-Forensics.pdf; fi
+if [ ! -f '/opt/ebook/forensic/Poster_Memory_Forensics.pdf' ]; then wget -O /opt/ebook/forensic/Poster_Memory_Forensics.pdf https://digital-forensics.sans.org/media/Poster_Memory_Forensics.pdf; fi
+if [ ! -f '/opt/ebook/forensic/reverse-engineering-malicious-code-tips.pdf' ]; then wget -O /opt/ebook/forensic/reverse-engineering-malicious-code-tips.pdf  https://digital-forensics.sans.org/media/reverse-engineering-malicious-code-tips.pdf; fi
+if [ ! -f '/opt/ebook/forensic/remnux-malware-analysis-tips.pdf' ]; then wget -O /opt/ebook/forensic/remnux-malware-analysis-tips.pdf https://digital-forensics.sans.org/media/remnux-malware-analysis-tips.pdf; fi
+"

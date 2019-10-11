@@ -1,0 +1,12 @@
+NAME="Forensic MetaPackage"
+DESC=""
+COMMAND="
+export DEBIAN_FRONTEND=noninteractive
+apt install -y forensics-full libguestfs-tools
+if [ ! -d '/cases' ]; then mkdir /cases; fi
+if [ ! -d '/root/Desktop/cases' ]; then ln -s /cases /root/Desktop/cases; fi
+if [ ! -d '/media/usb' ]; then mkdir /media/usb; fi
+if [ ! -d '/media/e01' ]; then mkdir /media/e01; fi
+if [ ! -d '/media/windows_mount' ]; then mkdir /media/windows_mount; fi
+if [ ! -d '/root/Desktop/mount_points' ]; then ln -s /media /root/Desktop/mount_points; fi
+"

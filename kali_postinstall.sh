@@ -79,7 +79,7 @@ apt install -y docker-ce docker-compose
 
 #########################################
 ## Forensic
-apt install -y forensics-full libguestfs-tools
+apt install -y forensics-full libguestfs-tools python-oletools
 mkdir /cases
 ln -s /cases /root/Desktop/cases
 mkdir /media/usb /media/e01 /media/windows_mount

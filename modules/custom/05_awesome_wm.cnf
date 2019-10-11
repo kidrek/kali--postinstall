@@ -1,0 +1,35 @@
+
+NAME="Awesome WM"
+DESC="Install Awesome Windows Manager"
+COMMAND="
+apt install -y awesome awesome-extra terminator nemo
+cd /tmp
+git clone --recursive https://github.com/lcpz/awesome-copycats.git
+mkdir -p ~/.config/awesome
+mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
+cd -
+cp ~/.config/awesome/rc.lua.template ~/.config/awesome/rc.lua
+sed -i -e 's,^local terminal     = .*,local terminal     = \"terminator\",' ~/.config/awesome/rc.lua
+
+## Add filemanager hotkey
+sed -i -e 's,^local terminal     = .*,&\nlocal filemanager  = \"nemo\",' ~/.config/awesome/rc.lua
+sed -i -e 's,^              {description = \"open a terminal\".*,&\n    awful.key({ modkey\,           }\, \"e\"\, function () awful.spawn(filemanager) end\,\n              {description = \"open a filemanager\"\, group = \"launcher\"})\,,' ~/.config/awesome/rc.lua
+
+## Change help display hotkey
+sed -i -e 's,^    awful.key({ modkey\,           }\, \"s\".*,    awful.key({ modkey\,           }\, \"h\"\,      hotkeys_popup.show_help\,,' ~/.config/awesome/rc.lua
+
+## Change webbrowser hotkey
+sed -i -e 's,^    awful.key({ modkey\,           }\, \"w\".*,  --awful.key({ modkey\,           }\, \"w\"\, function () awful.util.mymainmenu:show() end \,,' ~/.config/awesome/rc.lua
+sed -i -e 's,^              {description = \"show main menu\"\, group.*,            --{description = \"show main menu\"\, group = \"awesome\"})\,,' ~/.config/awesome/rc.lua
+
+sed -i -e 's,^    awful.key({ modkey }\, \"q\".*,    awful.key({ modkey}\, \"w\"\, function () awful.spawn(browser) end\,,' ~/.config/awesome/rc.lua
+
+
+## Change layout hotkey
+sed -i -e 's,^    awful.key({ modkey\,           }\, \"space\".*,    awful.key({ modkey\,           }\, \"t\"\, function () awful.layout.inc( 1)                end\,,' ~/.config/awesome/rc.lua
+
+
+## Change wallpaper
+cp ~/.config/awesome/themes/multicolor/wall.png ~/.config/awesome/themes/multicolor/wall.png.old
+cp ~/Pictures/sans_wallpaper_v5.png ~/.config/awesome/themes/multicolor/wall.png 
+"

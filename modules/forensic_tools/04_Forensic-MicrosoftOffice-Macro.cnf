@@ -1,0 +1,3 @@
+NAME="Tools to analyse MicrosoftOffice files"
+DESC=""
+COMMAND="apt install -y python-oletools"
