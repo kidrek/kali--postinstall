@@ -2,7 +2,7 @@
 
 This script allows you to install missing tools on fresh installation of the "kali" distribution, like : 
 
-* **Desktop Manager**: Regolith
+* **Windows Manager**: Awesome, Regolith
 * **Forensic tools**: forensics-full metapackage, libguestfs-tools, volatility profiles
 * ...
 
