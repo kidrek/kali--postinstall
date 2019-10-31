@@ -1,8 +1,9 @@
 NAME="Volatility"
 DESC="Download plugins, and profiles"
 COMMAND="
-if [ ! -d "/opt/tools/forensic/volatility" ]; then mkdir -p /opt/tools/forensic/volatility; fi
-if [ ! -d "/opt/tools/forensic/volatility/profiles" ]; then git clone --recursive -q -b master https://github.com/volatilityfoundation/profiles.git /opt/tools/forensic/volatility/profiles; fi
-if [ ! -d "/opt/tools/forensic/volatility/plugins" ]; then mkdir -p /opt/tools/forensic/volatility/plugins; fi
-if [ ! -d "/opt/tools/forensic/volatility/plugins-community" ]; then git clone https://github.com/volatilityfoundation/community.git "/opt/tools/forensic/volatility/plugins-community"; fi
+if [ ! -d '/opt/tools/forensic/volatility' ]; then mkdir -p /opt/tools/forensic/volatility; fi
+if [ ! -d '/opt/tools/forensic/volatility/profiles' ]; then git clone --recursive -q -b master https://github.com/volatilityfoundation/profiles.git /opt/tools/forensic/volatility/profiles; fi
+if [ ! -d '/opt/tools/forensic/volatility/plugins' ]; then mkdir -p /opt/tools/forensic/volatility/plugins; fi
+if [ ! -d '/opt/tools/forensic/volatility/plugins-community' ]; then git clone https://github.com/volatilityfoundation/community.git /opt/tools/forensic/volatility/plugins-community; fi
+if [ ! -f '/usr/lib/python2.7/dist-packages/volatility/renderers/html.py.old' ]; then /usr/lib/python2.7/dist-packages/volatility/renderers/html.py /usr/lib/python2.7/dist-packages/volatility/renderers/html.py.old; cp ./resources/configurations/volatility/html.py /usr/lib/python2.7/dist-packages/volatility/renderers/; fi
 "
