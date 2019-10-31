@@ -4,13 +4,11 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_color = "#282828"
+    background_color = "#002b36"
     background_darkness = 1.0
-    background_type = transparent
     cursor_color = "#aaaaaa"
-    foreground_color = "#ebdbb2"
+    foreground_color = "#839496"
     show_titlebar = False
-    use_theme_colors = True
 [layouts]
   [[default]]
     [[[window0]]]
@@ -20,4 +18,3 @@
       type = Terminal
       parent = window0
 [plugins]
-
